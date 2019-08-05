@@ -150,6 +150,65 @@ module.exports = (db) => {
 
 
 
+
+    let selectNewAccount = (request,response) => {
+        let data = {
+                accounts: null,
+                username: [request.params.username],
+                date: getCurrentDate()
+            };
+        var callback = function (error,results) {
+
+            if (results===null){
+
+                response.send("No accounts")
+
+            } else {
+                if (request.cookies.loggedin === hash(request.params.username)) {
+
+                    data.accounts = results.rows;
+                    // response.send(data)
+                    response.render('pages/SelectAddAcc', data)
+                } else {
+                    // response.redirect('/')
+                    response.send("username wrong??")
+                }
+            }
+        }
+        db.accounts.queryAllAccounts(callback);
+    };
+
+
+    let linkAccount = (request,response) => {
+        let data = {
+                accounts: null,
+                username: [request.params.username],
+                date: getCurrentDate()
+            };
+        var callback = function (error,results) {
+
+            if (results===null){
+
+                response.send("No accounts")
+
+            } else {
+                if (request.cookies.loggedin === hash(request.params.username)) {
+
+                    // data.accounts = results.rows;
+
+                    // response.send(request.body)
+                    response.redirect('/home/'+request.cookies.username+'/accounts')
+                } else {
+                    // response.redirect('/')
+                    response.send("username wrong??")
+                }
+            }
+        }
+        db.accounts.linkAcc(callback, request.cookies.userid, request.body.account_id);
+    };
+
+
+
   /**
    * ===========================================
    * Export controller functions as a module
@@ -160,6 +219,8 @@ module.exports = (db) => {
     newAccPage: newAccount,
     addAcc: addAccount,
     accTxns: displayAccTxns,
+    selectAccPage: selectNewAccount,
+    linkAcc: linkAccount,
   };
 
 }

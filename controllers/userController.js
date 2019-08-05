@@ -1,6 +1,7 @@
 const sha256=require('js-sha256');
-var cloudinary = require('cloudinary');
 const SALT = 'SAVE FinTrack MONEY!';
+
+var cloudinary = require('cloudinary');
 
 cloudinary.config({
     cloud_name: 'irockmysock',
@@ -28,25 +29,6 @@ module.exports = (db) => {
     let month = newDate.toLocaleString('default', { month: 'long' });
     let year = newDate.getFullYear();
     return `${date} ${month} ${year}`
-  }
-
-  let test = (request,response) => {
-    var callback = function (error,results) {
-            if (results===null){
-                response.send("NO DATA")
-            } else {
-                let data = {
-                    categories: results.rows
-                };
-                // response.send(data)
-                response.render('pages/test', data);
-            }
-    }
-    db.users.expenseByCat(callback, request.cookies.userid)
-  }
-
-  let test2 = (request,response) => {
-    response.render('pages/LayoutCom')
   }
 
 
@@ -320,6 +302,9 @@ module.exports = (db) => {
 
     let editTransaction = (request,response) => {
         // response.send("ADDED TRANSACTION!")
+        console.log("REQ BODY IS");
+        console.log(request.body)
+
         var callback = function (error,results) {
 
             if (results===null){
@@ -365,7 +350,6 @@ module.exports = (db) => {
    * ===========================================
    */
   return {
-    test: test,
     home: displayHomePage,
     transactions: displayTransactions,
     newTxnPage: newTransaction,
@@ -373,7 +357,6 @@ module.exports = (db) => {
     editTxnPage: showTransaction,
     edit: editTransaction,
     delete: deleteTransaction,
-    test2:test2,
   };
 
 }

@@ -39,8 +39,8 @@ module.exports = (app, allModels) => {
   app.get('/home/:username/:txnId/editTransaction', userControllerCallbacks.editTxnPage);
   app.put('/home/:username/:txnId/', userControllerCallbacks.edit);
   app.delete('/home/:username/:txnId/', userControllerCallbacks.delete);
-  app.get('/test', userControllerCallbacks.test);
-  app.get('/test2', userControllerCallbacks.test2);
+  // app.get('/test', userControllerCallbacks.test);
+  // app.get('/test2', userControllerCallbacks.test2);
 
    // *  =========================================
    // *   User Account Routes
@@ -49,5 +49,7 @@ module.exports = (app, allModels) => {
   app.get('/home/:username/newAccount', accountControllerCallbacks.newAccPage);
   app.post('/home/:username/newAccount', accountControllerCallbacks.addAcc);
   app.get('/home/:username/accounts/:accId', accountControllerCallbacks.accTxns);
+  app.get('/home/:username/selectAccount', accountControllerCallbacks.selectAccPage);
+  app.post('/home/:username/selectAccount', accountControllerCallbacks.linkAcc);
 
 }

@@ -19,7 +19,7 @@ INSERT INTO transaction_types (type, type_icon) VALUES ('American Express True C
 
 
 
-user_accounts seed--
+--user_accounts seed--
 INSERT INTO user_accounts (user_id, account_id, billing_date) VALUES (2, 1, 'N.A');
 INSERT INTO user_accounts (user_id, account_id, billing_date) VALUES (2, 2, '20th');
 INSERT INTO user_accounts (user_id, account_id, billing_date) VALUES (2, 3, '25th');

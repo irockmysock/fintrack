@@ -1,10 +1,6 @@
 var React = require("react");
 const Layout = require('./LayoutCom.jsx');
 
-const uploadStyle = {
-    // visibility: "hidden",
-}
-
 class AddTxn extends React.Component {
   render() {
     return (
@@ -81,9 +77,14 @@ class AddTxn extends React.Component {
                     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="details" placeholder='e.g "Grab payment"'></textarea>
                   </div>
 
+                  <p>Upload Receipt</p>
                   <div class="form-group">
-                    <label class="cameraButton">Upload Receipt
-                    <input type="file" id="upload" style={uploadStyle} accept="image/*;capture=camera" name="receipt"/></label>
+                    <div class="input-group mb-3">
+                      <div class="custom-file">
+                        <input type="file" accept="image/*;capture=camera" class="custom-file-input" name="receipt"/>
+                        <label class="custom-file-label" for="inputGroupFile02">Choose File</label>
+                      </div>
+                    </div>
                   </div>
 
                   <div className="text-center">

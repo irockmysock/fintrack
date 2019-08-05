@@ -178,7 +178,7 @@ module.exports = (dbPoolInstance) => {
     dbPoolInstance.query(query, values, (error, queryResult) => {
         if( error ){
         // invoke callback function with results after query has executed
-        callback(error, null);
+            callback(error, null);
         } else if (queryResult.rows[0] === undefined) {
             callback(null, null)
         // invoke callback function with results after query has executed

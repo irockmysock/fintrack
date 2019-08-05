@@ -85,6 +85,7 @@ class EditTxn extends React.Component {
                     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" value={this.props.txnData.rows[0].details} name="details"></textarea>
                   </div>
 
+
                   <div className="text-center">
                     <button type="submit" class="btn btn-primary btn-success">EDIT Transaction</button>
                   </div>
@@ -112,3 +113,14 @@ class EditTxn extends React.Component {
 }
 
 module.exports = EditTxn;
+
+
+// <p>Upload Receipt</p>
+//                   <div class="form-group">
+//                     <div class="input-group mb-3">
+//                       <div class="custom-file">
+//                         <input type="file" accept="image/*;capture=camera" class="custom-file-input" name="receipt"/>
+//                         <label class="custom-file-label" for="inputGroupFile02">Choose File</label>
+//                       </div>
+//                     </div>
+//                   </div>

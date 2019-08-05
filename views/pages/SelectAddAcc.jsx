@@ -1,7 +1,7 @@
 var React = require("react");
 const Layout = require('./LayoutCom.jsx');
 
-class Accounts extends React.Component {
+class SelectAccounts extends React.Component {
   render() {
     return (
 
@@ -49,7 +49,7 @@ class Accounts extends React.Component {
                       </blockquote>
 
                       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                        <h2>Your Accounts</h2>
+                        <h2>Select Account To Add</h2>
                         <div class="btn-toolbar mb-2 mb-md-0">
                             <div class="btn-group mr-2">
                                 <a href={"/"} class="btn btn-primary">Dashboard</a>
@@ -57,7 +57,7 @@ class Accounts extends React.Component {
                                 <a href={"/home/" + this.props.username[0] + "/accounts"} class="btn btn-primary">All Accounts</a>
                             </div>
                             <div>
-                                <a href={"/home/" + this.props.username[0] + "/selectAccount"} class="btn  btn-secondary btn-info">Add New Account</a>
+                                <a href={"/home/" + this.props.username[0] + "/newAccount"} class="btn  btn-secondary btn-info">Add New Account</a>
                             </div>
                         </div>
                       </div>
@@ -65,26 +65,40 @@ class Accounts extends React.Component {
                 </div>
 
                 <div className="row">
-                    {this.props.accounts.rows.map( account =>
+                    <div className="col-12">
+                    <h4>Manually enter account details <a href={"/home/" + this.props.username[0] + "/newAccount"}><span className='text-info'>here</span></a></h4>
+                    <h4>or choose from list below</h4>
+                    </div>
+                </div>
+
+
+                <div className="row">
+                    {this.props.accounts.map( account =>
                     <div className='col-12 col-sm-6 col-md-4 col-lg-12'>
 
                         <div class="card mb-3">
                           <h3 class="card-header">{account.type}</h3>
 
-                          <a href={"/home/"+this.props.username[0]+'/accounts/'+account.account_id}><img className="card-img" src={account.type_icon}/></a>
+                          <img className="card-img" src={account.type_icon}/>
+
 
                           <div class="card-body">
-                            <p class="card-text">Billing Date: {account.billing_date}</p>
+                            <form method="POST" action={"/home/"+this.props.username[0]+"/selectAccount"}>
+
+                              <div class="form-group">
+                                <input type="hidden" value={account.id} name="account_id"/>
+                              </div>
+
+                              <div className="text-center">
+                                <button type="submit" class="btn btn-primary btn-info">Add Account</button>
+                              </div>
+
+                            </form>
+
+
                           </div>
 
-                          <div class="card-body">
-                            <a href="#" class="btn btn-sm btn-primary btn-success card-link">Edit</a>
-                            <a href="#" class="btn btn-sm btn-primary btn-danger card-link">Unlink</a>
-                          </div>
 
-                          <div class="card-footer text-muted">
-                            Added: 06/06/2018
-                          </div>
 
                         </div>
 
@@ -109,4 +123,4 @@ class Accounts extends React.Component {
   }
 }
 
-module.exports = Accounts;
+module.exports = SelectAccounts;
