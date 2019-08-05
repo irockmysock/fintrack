@@ -1,0 +1,63 @@
+body {
+	color: white;
+}
+
+.chart-container {
+  position: relative;
+  margin: auto;
+  height: 50vh;
+  width: 65vw;
+}
+
+.logo {
+	width: 40px;
+	height: 30px;
+	padding: 0 5px;
+}
+
+.cat-icon {
+	width: 30px;
+	height: 30px;
+}
+
+.card-icon {
+	width: 90px;
+	height: 55px;
+}
+
+.card-thumb {
+	width: 35px;
+	height: 23px;
+}
+
+.card-img {
+	height: 150px;
+	width: 100%;
+	display: block;
+	border-radius: 15px
+}
+
+h3.card-header {
+	font-size: 15px;
+}
+
+p.card-text {
+	font-size: 0.75em;
+}
+
+div.card-body {
+	padding: 0.5em;
+}
+
+div h1 {
+	padding: 10px;
+}
+
+blockquote h3 {
+	/*color:rgba(255,100,132,1);*/
+}
+
+
+/*#myChart {
+	width:50%;
+}*/
