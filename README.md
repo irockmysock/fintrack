@@ -21,6 +21,8 @@ The app should fulfill the basic requirements which allow for adding, editing an
 
 ### App Features and Technology Used
 
+FinTrack is a basic CRUD app built with PostgresSQL, React, Node and Express stack.
+
 The dashboard gives users a breakdown of expenses by category as well as by accounts (credit card, cash etc) for the current month. Latest transactions are also displayed together with the total expenditure for the current month. Adding a transaction is done with a simple click on the 'Add Transaction' button and users can choose from a pre-defined list of categories which the expense belongs to. Future versions of the app will allow users to create their own categories. Receipt image upload is done through cloudinary. 
 
 In the 'All Transactions' view, spending is broken down by month in the form of a bar chart to provide visual representation of users spending trends, and all transactions are listed here. Users can edit/delete transactions from here. 
