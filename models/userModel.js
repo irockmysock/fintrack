@@ -238,7 +238,7 @@ module.exports = (dbPoolInstance) => {
 
   let expenseByCat = (callback,userid) => {
 
-    const query = "SELECT category_id, cat_name, SUM (amount) FROM transactions INNER JOIN categories ON (transactions.category_id=categories.id) WHERE user_id=$1 GROUP BY categories.cat_name, transactions.category_id ORDER BY category_id";
+    const query = "SELECT category_id, cat_name, SUM (amount) FROM transactions INNER JOIN categories ON (transactions.category_id=categories.id) WHERE user_id=$1 AND transaction_date >= date_trunc('month', CURRENT_DATE) GROUP BY categories.cat_name, transactions.category_id ORDER BY category_id";
 
     let values = [userid];
 
@@ -263,7 +263,7 @@ module.exports = (dbPoolInstance) => {
 
   let sumTxnsByMonth = (callback,username) => {
 
-    const query = "SELECT SUM(amount), to_char(transaction_date, 'MM-YYYY') as month FROM transactions INNER JOIN users ON (transactions.user_id = users.id) WHERE username=$1 GROUP BY month";
+    const query = "SELECT SUM(amount), to_char(transaction_date, 'MM-YYYY') as month FROM transactions INNER JOIN users ON (transactions.user_id = users.id) WHERE username=$1 GROUP BY month ORDER BY month";
 
     let values = [username];
 
