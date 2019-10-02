@@ -66,7 +66,7 @@ class Accounts extends React.Component {
 
                 <div className="row">
                     {this.props.accounts.rows.map( account =>
-                    <div className='col-12 col-sm-6 col-md-4 col-lg-12'>
+                    <div className='col-9 col-sm-6 col-md-4 col-lg-3'>
 
                         <div class="card mb-3">
                           <h3 class="card-header">{account.type}</h3>
